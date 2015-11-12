@@ -1,0 +1,78 @@
+﻿@model ShareMockups.DataContexts.ShareMockupsViewModel
+@*@model ShareMockups.DomainClasses.ShareMockup*@
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Mockups Templates</h1>
+    <p class="lead">Mockups templates allow you to share your proof of concepts for software development purposes. Brainstorming ideas, UI design patterns, UX based on models, Code Reviews, and demos.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+@using (Html.BeginForm())
+{
+    <!-- BEGING HIDDEN FIELD AREA PROPERTYCHANGED EVENTS-->
+    @*@Html.HiddenFor(m => m.EventCommand)*@
+    @*@Html.HiddenFor(m => m.Mode)
+    @Html.HiddenFor(m => m.EventArgument)*@
+    <!-- END HIDDEN FIELDS AREA these fields are bound to the view model-->
+
+    <!-- BEGIN List AREA-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-condensed table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Mockup Name</th>
+                            <th>URL</th>
+                            <th>Description</th>
+                            <th>Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Mockups)
+                {
+                            <tr>
+                                <td>@item.MockupName</td>
+                                <td class="pdsa-action-button-column">
+                                    <a href="@item.Url" data-mockup-action="run"
+                                       data-mockup-val="@item.ShareMockupId"
+                                       class="btn btn-default btn-sm">
+                                    </a>
+                                </td>
+                                <td>@item.Description</td>
+                                <td>@item.Rate</td>
+                            </tr>
+                 }
+                    </tbody>
+                </table>
+            </div>
+            <!-- END OF LIST AREA-->
+        </div>
+    </div>
+}
+
+@*<div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                Share Mockups is an ASP.NET MVC application using terms and various approaches from agile development
+                that enables the data gathering process a much easier practical tool as part of the Software Development
+                Life Cycle.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Practical Tools - Mockups</h2>
+            <p>Be sure your prototypes and/or wireframe are solid and have received sufficient customer feedback and validation.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Practical Tools - Business Rules</h2>
+            <p>Capture all business rules in a single doc file.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
