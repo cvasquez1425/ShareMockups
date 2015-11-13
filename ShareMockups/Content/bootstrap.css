@@ -4501,17 +4501,19 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+    background-color: #fff;   /*Custom ShareMockups      background-color: #222222;*/
+    border-color: #080808;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  /* color: #999999;          Custom ShareMockups */
+  color: #1E375F;
 }
 
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #ffffff;
+  /* color: #ffffff;          Custom ShareMockups */
+  color: #FAB432;
   background-color: transparent;
 }
 
@@ -4525,14 +4527,16 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
+  /*color: #ffffff;   Customr Mockups */
+  color: #FAB432;
   background-color: transparent;
 }
 
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #ffffff;
+  /*color: #ffffff;   Customr Mockups */
+  color: #FAB432;
   background-color: #080808;
 }
 
