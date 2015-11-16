@@ -1,5 +1,6 @@
 ﻿using ShareMockups.DataContexts;
 using ShareMockups.DomainClasses;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
@@ -8,7 +9,7 @@ namespace ShareMockups.Controllers
 {
     public class HomeController : Controller
     {
-        private ShareMockupsContext db = new ShareMockupsContext();
+        private static ShareMockupsContext ctx = new ShareMockupsContext();
 
         public ActionResult Index()
         {
@@ -37,7 +38,7 @@ namespace ShareMockups.Controllers
         public ActionResult IndexMockup()
         {
 
-            return View(db.ShareMockups.ToList());
+            return View(ctx.ShareMockups.ToList());
 
         }
 
@@ -54,8 +55,8 @@ namespace ShareMockups.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.ShareMockups.Add(sharemockup);
-                db.SaveChanges();
+                ctx.ShareMockups.Add(sharemockup);
+                ctx.SaveChanges();
                 return RedirectToAction("IndexMockup");
             }
 
@@ -71,13 +72,34 @@ namespace ShareMockups.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            ShareMockup sharemockup = db.ShareMockups.Find(id);
+            ShareMockup sharemockup = ctx.ShareMockups.Find(id);
+
             if (sharemockup == null)
             {
                 return HttpNotFound();
             }
 
             return View(sharemockup);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, [Bind(Include = "ShareMockupId,MockupName,Url,Description,Rate,Available")] ShareMockup sharemockup)
+        {
+           var model = ctx.ShareMockups.Single(s => s.ShareMockupId == id);
+
+            if (TryUpdateModel(model))
+            {
+                ctx.Database.Log = sql => Debug.Write(sql);
+
+                var attachedEntry = ctx.Entry(model);
+                attachedEntry.CurrentValues.SetValues(model);
+
+                ctx.SaveChanges();
+                return RedirectToAction("IndexMockup");
+            }
+            return View(sharemockup);
+
         }
 
         //GET: /Home/Details/5
@@ -88,7 +110,7 @@ namespace ShareMockups.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            ShareMockup sharemockup = db.ShareMockups.Find(id);
+            ShareMockup sharemockup = ctx.ShareMockups.Find(id);
             if (sharemockup == null)
             {
                 return HttpNotFound();
