@@ -105,6 +105,7 @@ namespace ShareMockups.Controllers
         //GET: /Home/Details/5
         public ActionResult Details(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -118,6 +119,36 @@ namespace ShareMockups.Controllers
 
             return View(sharemockup);
 
+        }
+
+        //GET: /Home/Delete/5
+        public ActionResult ShareMockupsDelete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            ShareMockup sharemockup = ctx.ShareMockups.Find(id);
+            if (sharemockup == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sharemockup);
+
+        }
+
+        //POST: ShareMockups/Confirm Delete
+        [HttpPost, ActionName("ShareMockupsDelete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ShareMockupsDeleteConfirm(int? id)
+        {
+            ctx.Database.Log = sql => Debug.Write(sql);
+
+            ShareMockup sharemockup = ctx.ShareMockups.Find(id);
+            ctx.ShareMockups.Remove(sharemockup);
+            ctx.SaveChanges();
+            return RedirectToAction("IndexMockup");
         }
 
     }
