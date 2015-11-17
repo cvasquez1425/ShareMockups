@@ -4191,6 +4191,18 @@ textarea.input-group-sm > .input-group-btn > .btn {
   margin-bottom: 0;
 }
 
+/*Custom Mockups*/
+.navbar-brand {
+    position: absolute;
+    top: 10px;
+    left: 17px;
+    display: block;
+    z-index: 999;
+    height: 37px;
+    width: 290px;
+    background: transparent url('../Images/Our Daily Bread.PNG') no-repeat 0 0;
+}
+
 .navbar-brand {
   float: left;
   padding: 15px 15px;

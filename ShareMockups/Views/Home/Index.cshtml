@@ -14,9 +14,9 @@
 @using (Html.BeginForm())
 {
     <!-- BEGING HIDDEN FIELD AREA PROPERTYCHANGED EVENTS-->
-    @*@Html.HiddenFor(m => m.EventCommand)*@
-    @*@Html.HiddenFor(m => m.Mode)
-    @Html.HiddenFor(m => m.EventArgument)*@
+    @Html.HiddenFor(m => m.EventCommand)
+    @Html.HiddenFor(m => m.Mode)
+    @Html.HiddenFor(m => m.EventArgument)
     <!-- END HIDDEN FIELDS AREA these fields are bound to the view model-->
 
     <!-- BEGIN List AREA-->
@@ -27,7 +27,7 @@
                     <thead>
                         <tr>
                             <th>Mockup Name</th>
-                            <th>URL</th>
+                            <th>GitHub URL</th>
                             <th>Description</th>
                             <th>Rate</th>
                         </tr>
