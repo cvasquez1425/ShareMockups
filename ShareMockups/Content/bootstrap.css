@@ -4200,7 +4200,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     z-index: 999;
     height: 37px;
     width: 290px;
-    /*background: transparent url('../Images/Our Daily Bread.PNG') no-repeat 0 0;*/
+    background: transparent url('../Images/Our Daily Bread.PNG') no-repeat 0 0;
 }
 
 .navbar-brand {
