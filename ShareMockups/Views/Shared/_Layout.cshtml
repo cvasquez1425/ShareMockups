@@ -20,22 +20,18 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        @*<div class="container">
-            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
-                <img alt="Share" src="@Url.Content("~/Images/Our Daily Bread.PNG")" />
-            </a>
-        </div>*@
         <div class="container">
-            <div class="navbar-header">
-                <a href="http://sharemockups.net" title="Home"> <span class="navbar-brand" > </span>
-                </a>
-                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("ShareMockups", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://sharemockups.net" title="Home">
+                            <span class="navbar-brand"> </span>
+                        </a>
+                    </li>
+                </ul>
             </div>
+        </div>
+        <div class="container">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
