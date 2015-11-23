@@ -7,9 +7,11 @@ namespace SinglePageApplication.Controllers
     {
         public ActionResult Index()
         {
-            TrainingProductManager mgr = new TrainingProductManager();
+            TrainingProductViewModel vm = new TrainingProductViewModel();
 
-            return View(mgr.Get());
+            vm.Get();
+
+            return View(vm);
         }
 
         public ActionResult About()
