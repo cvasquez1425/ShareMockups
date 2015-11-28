@@ -1,9 +1,10 @@
 ﻿using ShareMockups.DomainClasses;
 using System.Web.Mvc;
 
-namespace SinglePageApplication.Controllers
+//namespace SinglePageApplication.Controllers
+namespace ShareMockups.Controllers
 {
-    public class HomeController : Controller
+    public class ShareMockupsController : Controller
     {
         public ActionResult Index()
         {

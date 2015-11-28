@@ -11,22 +11,22 @@ namespace ShareMockups
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            // MyRootNamespace.Areas.Blogs.Controllers.HomeController.
-            // ShareMockups.Areas.SinglePageApps.Controllers.HomeController
-            routes.MapAreas("{controller}/{action}/{id}",                       // Routing URL pattern
-                "ShareMockups",                                                 // Root NameSpace
-                    new[] { "SinglePageApps" });                                // The last argument to the method is a string array of the “areas” in your application.
-                        
-            // ADDED 11/24/2015
-            //routes.MapRootArea("{controller}/{action}/{id}",
-            //    "ShareMockups",
-            //    new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+            // ShareMockups.Areas.SinglePageApps.Controllers
+            routes.MapAreas("{controller}/{action}/{id}",
+               "ShareMockups",
+               new[] { "SinglePageApps", "Forums" });
 
-            routes.MapRoute(
-                name: "Default",                                                                        // Route name
-                url: "{controller}/{action}/{id}",                                                      // URL with parameters
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }     // Parameters defaults
-            );
+            routes.MapRootArea("{controller}/{action}/{id}",
+                "ShareMockups",
+                new { controller = "Home", action = "Index", id = "" });
+
+            //RouteDebug.RouteDebugger.RewriteRoutesForTesting(RouteTable.Routes);
+
+            //routes.MapRoute(
+            //    name: "Default",                                                                        // Route name
+            //    url: "{controller}/{action}/{id}",                                                      // URL with parameters
+            //    defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }    // Parameters defaults
+            //);
 
         }
 

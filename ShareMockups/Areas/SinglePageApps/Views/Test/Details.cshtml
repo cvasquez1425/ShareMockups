@@ -1,0 +1,82 @@
+﻿@model ShareMockups.DomainClasses.ShareMockup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ShareMockup</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MockupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MockupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDefined)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDefined)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDefined2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDefined2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserDefined3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDefined3)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ShareMockupId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

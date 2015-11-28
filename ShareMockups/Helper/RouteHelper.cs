@@ -1,19 +1,31 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.Routing;
 
 namespace ShareMockups.Helper
 {
     public static class RouteHelper
     {
-        public static Route MapAreas(this RouteCollection routes, string RoutingUrl, string RootNameSpace, string[] Areas)
-        {
-           return routes.MapRoute("ShareMockups", "{ controller}/{ action}/{ id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional });
-        }
+            public static void MapAreas(this RouteCollection routes, string url, string rootNamespace, string[] areas)
+            {
+                Array.ForEach(areas, area => {
+                    Route route = new Route("{area}/" + url, new MvcRouteHandler());
+                    route.Constraints = new RouteValueDictionary(new { area });
+                    string areaNamespace = rootNamespace + ".Areas." + area + ".Controllers";
+                    route.DataTokens = new RouteValueDictionary(new { namespaces = new string[] { areaNamespace } });
+                    route.Defaults = new RouteValueDictionary(new { action = "Index", controller = "Home", id = "" });
+                    routes.Add(route);
+                });
+            }
 
-        //public static Route MapRootArea(this RouteCollection routes, string RoutingUrl, string RootNameSpace, string Areas)
-        //{
-
-        //}
+            public static void MapRootArea(this RouteCollection routes, string url, string rootNamespace, object defaults)
+            {
+                Route route = new Route(url, new MvcRouteHandler());
+                route.DataTokens = new RouteValueDictionary(new { namespaces = new string[] { rootNamespace + ".Controllers" } });
+                route.Defaults = new RouteValueDictionary(new { area = "root", action = "Index", controller = "Home", id = "" });
+                routes.Add(route);
+            }
+        
 
     }
 }
