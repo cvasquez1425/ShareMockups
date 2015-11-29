@@ -251,6 +251,7 @@
     <Content Include="Areas\SinglePageApps\Views\Test\Details.cshtml" />
     <Content Include="Areas\SinglePageApps\Views\Test\Edit.cshtml" />
     <Content Include="Areas\SinglePageApps\Views\Test\Index.cshtml" />
+    <Content Include="Areas\SinglePageApps\Views\ShareMockups\Index.cshtml" />
     <None Include="Properties\PublishProfiles\ShareMockups.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

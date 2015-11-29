@@ -12,6 +12,8 @@ namespace ShareMockups.Controllers
 
             vm.Get();
 
+            ViewData["Share"] = "Share Mockups";
+
             return View(vm);
         }
 
