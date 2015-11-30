@@ -193,7 +193,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\SinglePageApps\Controllers\ShareMockupsController.cs" />
-    <Compile Include="Areas\SinglePageApps\Controllers\TestController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -242,7 +241,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="Areas\SinglePageApps\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\SinglePageApps\Views\Home\Index.cshtml" />
     <Content Include="Areas\SinglePageApps\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\SinglePageApps\Views\Shared\Error.cshtml" />
     <Content Include="Areas\SinglePageApps\Views\Web.config" />
@@ -252,6 +250,7 @@
     <Content Include="Areas\SinglePageApps\Views\Test\Edit.cshtml" />
     <Content Include="Areas\SinglePageApps\Views\Test\Index.cshtml" />
     <Content Include="Areas\SinglePageApps\Views\ShareMockups\Index.cshtml" />
+    <Content Include="Areas\SinglePageApps\Views\Home\Index.cshtml" />
     <None Include="Properties\PublishProfiles\ShareMockups.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -309,6 +308,7 @@
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\ShareMockupsDelete.cshtml" />
+    <Content Include="Views\ShareMockups\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
