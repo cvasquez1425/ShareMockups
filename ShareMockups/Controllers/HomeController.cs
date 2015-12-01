@@ -17,7 +17,8 @@ namespace ShareMockups.Controllers
 
             vm.HandleRequest();
 
-            ViewData["Title"] = "Home Page";
+            ViewData["Foo"] = "Home Page";  //  Allows you to store data in a controller action that will be used in the corresponding view. 
+                                            //  This assumes that the action returns a view and doesn't redirect. Lives only during the current request.
 
             return View(vm);     //.Mockups.ToList());
         }

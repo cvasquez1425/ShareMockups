@@ -16,6 +16,8 @@ namespace ShareMockups.Controllers
             // After implementing HandleRequest
             vm.HandleRequest();
 
+            ViewData["Title"] = "ShareMockups Controller";
+
             //            return View(mgr.Get());
             return View(vm);  // passing the whole view model, because we're going to pass additional properties that the view can use.
         }
