@@ -18,7 +18,7 @@ namespace ShareMockups.Controllers
             vm.HandleRequest();
 
             ViewData["Title"] = "Home Page";
-//            ViewData["Message"] = "Welcome to ASP.NET MVC!";
+
             return View(vm);     //.Mockups.ToList());
         }
 

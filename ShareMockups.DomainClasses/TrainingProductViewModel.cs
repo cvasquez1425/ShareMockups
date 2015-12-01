@@ -1,5 +1,4 @@
-﻿using ShareMockups.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace ShareMockups.DomainClasses
@@ -27,7 +26,7 @@ namespace ShareMockups.DomainClasses
             base.Init();
         }
 
-        public void HandleRequest()
+        public override void HandleRequest()
         {
             switch (EventCommand.ToLower())
             {
@@ -74,7 +73,7 @@ namespace ShareMockups.DomainClasses
             }
         }
 
-        private void Save()
+        protected override void Save()
         {
             TrainingProductManager mgr = new TrainingProductManager();
 
@@ -107,7 +106,7 @@ namespace ShareMockups.DomainClasses
             }
         }
 
-        private void Add()
+        protected override void Add()
         {
             IsValid = true;
 
@@ -120,7 +119,7 @@ namespace ShareMockups.DomainClasses
 
         }
 
-        private void Edit()
+        protected override void Edit()
         {
             TrainingProductManager mgr = new TrainingProductManager();
 
@@ -130,7 +129,7 @@ namespace ShareMockups.DomainClasses
             EditMode();
         }
 
-        private void Delete()
+        protected override void Delete()
         {
             TrainingProductManager mgr = new TrainingProductManager();
             Entity = new TrainingProduct();
@@ -142,7 +141,7 @@ namespace ShareMockups.DomainClasses
             ListMode();
         }
 
-        private void AddMode()
+        protected override void AddMode()
         {
             IsListAreaVisible = false;
             IsSearchAreaVisible = false;
@@ -151,7 +150,7 @@ namespace ShareMockups.DomainClasses
             Mode = "Add";
         }
 
-        private void EditMode()
+        protected override void EditMode()
         {
             IsListAreaVisible = false;
             IsSearchAreaVisible = false;
@@ -160,7 +159,7 @@ namespace ShareMockups.DomainClasses
             Mode = "Edit";
         }
 
-        private void ResetSearch()
+        protected override void ResetSearch()
         {
             SearchEntity = new TrainingProduct();
         }
