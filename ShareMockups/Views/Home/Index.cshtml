@@ -37,7 +37,7 @@
                         @foreach (var item in Model.Mockups)
                 {
                             <tr>
-                                <td>@item.MockupName</td>
+                                <td>@Html.ActionLink(@item.MockupName, "Index", "ShareMockups")</td>
                                 <td class="pdsa-action-button-column">
                                     <a href="@item.Url" data-mockup-action="run"
                                        data-mockup-val="@item.ShareMockupId">
