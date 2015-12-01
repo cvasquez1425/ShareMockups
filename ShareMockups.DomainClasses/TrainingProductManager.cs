@@ -1,19 +1,90 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShareMockups.DomainClasses
 {
     public class TrainingProductManager
     {
-        public List<TrainingProduct> Get()
+        public TrainingProductManager()
+        {
+            ValidationErrors = new List<KeyValuePair<string, string>>();
+        }
+
+        public bool Validate(TrainingProduct entity)
+        {
+            ValidationErrors.Clear();
+            if (!string.IsNullOrEmpty(entity.ProductName))
+            {
+                // Check for lower case
+                if (entity.ProductName.ToLower() == entity.ProductName)
+                {
+                    ValidationErrors.Add(new KeyValuePair<string, string>("ProductName", "Product Name must not be all lowe case."));  // Business Rule failed.
+                }
+            }
+
+            return (ValidationErrors.Count == 0); // return True or False
+        }
+
+        public bool Delete(TrainingProduct entity)  // I could have simply passed the ProductId here but I kinda like passing the whole entity
+        {
+            //TODO: Create DELETE code here
+
+            return true;
+        }
+
+        public TrainingProduct Get(int ProductId)
+        {
+            List<TrainingProduct> list = new List<TrainingProduct>();
+            TrainingProduct ret = new TrainingProduct();
+
+            // TODO: Call your data access method here
+            list = CreateMockData();
+
+            ret = list.Find(p => p.ProductId == ProductId);
+
+            return ret;
+        }
+
+        // UPDATE Method to database
+        public bool Update(TrainingProduct entity)
+        {
+            bool ret = false;
+
+            ret = Validate(entity);
+            if (ret)
+            {
+                // TODO: Create UPDATE Code here
+            }
+
+            return ret;
+        }
+
+        public bool Insert(TrainingProduct entity)
+        {
+            bool ret = false;
+
+            ret = Validate(entity);
+            if (ret)
+            {
+                //TODO: Create INSERT code here 
+            }
+
+            return ret;
+        }
+
+        public List<KeyValuePair<string, string>> ValidationErrors { get; set; }
+
+        public List<TrainingProduct> Get(TrainingProduct entity)
         {
             List<TrainingProduct> ret = new List<TrainingProduct>();
 
-            //TODO : Add your data access method here.
+            // TODO: Add your data access method here.
             ret = CreateMockData();
+
+            if (!string.IsNullOrEmpty(entity.ProductName))
+            {
+                ret = ret.FindAll(p => p.ProductName.ToLower().StartsWith(entity.ProductName, StringComparison.CurrentCultureIgnoreCase));
+            }
 
             return ret;
         }
