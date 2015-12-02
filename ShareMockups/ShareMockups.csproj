@@ -215,7 +215,7 @@
     </Compile>
     <Compile Include="Helper\RouteHelper.cs" />
     <Compile Include="Helper\StringExtensions.cs" />
-    <Compile Include="Helper\TestExtensions.cs" />
+    <Compile Include="Helper\LinqQueries.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
